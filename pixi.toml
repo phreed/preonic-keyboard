@@ -1,0 +1,130 @@
+[project]
+name = "preonic-keyboard"
+version = "0.1.0"
+description = "FreedBoard keyboard layout - A modern keyboard implementation with advanced modifier handling and multiple layers for ortholinear keyboards"
+authors = ["FreedBoard Layout Team"]
+channels = ["conda-forge"]
+platforms = ["linux-64", "osx-64", "win-64", "osx-arm64", "linux-aarch64"]
+
+[dependencies]
+python = ">=3.8,<4"
+ruby = ">=2.7"
+
+[pypi-dependencies]
+qmk = "*"
+
+# Conditionally install asciidoctor dependencies based on platform
+[target.linux-64.dependencies]
+asciidoctor = "*"
+[target.osx-64.dependencies]
+asciidoctor = "*"
+[target.osx-arm64.dependencies]
+asciidoctor = "*"
+[target.win-64.dependencies]
+# On Windows, we'll use gem install instead
+
+[tasks]
+
+# === Core Tasks ===
+
+# Generate SVG layer visualizations from keyboard configuration
+[tasks.generate-svg]
+cmd = "python scripts/generate_keyboard_layers.py phreedom.json layout-templates/LAYOUT_ortho_5x12-template.svg"
+
+# Build PDF documentation from AsciiDoc source
+[tasks.build-pdf]
+cmd = "asciidoctor-pdf FreedBoard.adoc -o FreedBoard.pdf"
+
+# Lint the keyboard configuration file using QMK
+[tasks.lint-config]
+cmd = "qmk lint phreedom.json"
+
+# Compile firmware from keyboard configuration
+[tasks.compile-firmware]
+cmd = "qmk compile phreedom.json"
+
+# Flash the keyboard with compiled firmware (requires connected device)
+[tasks.flash-keyboard]
+cmd = "qmk flash phreedom.json"
+
+# === Utility Tasks ===
+
+# Remove all generated files
+[tasks.clean]
+cmd = [
+    "rm -rf keyboard_layers/*.svg",
+    "rm -f FreedBoard.pdf",
+    "rm -f *.bin *.hex *.elf *.map"
+]
+
+# Ensure output directories exist
+[tasks.ensure-dirs]
+cmd = "mkdir -p keyboard_layers"
+
+# Check QMK installation and configuration
+[tasks.check-qmk]
+cmd = "qmk doctor"
+
+# Install AsciiDoctor and AsciiDoctor-PDF via gem
+[tasks.install-asciidoctor]
+cmd = [
+    "gem install asciidoctor",
+    "gem install asciidoctor-pdf"
+]
+
+# === Composite Tasks ===
+
+# Generate all outputs (SVG layers and PDF documentation)
+[tasks.build-all]
+depends-on = ["ensure-dirs", "generate-svg", "build-pdf"]
+
+# Full development workflow: lint → build → compile
+[tasks.workflow]
+depends-on = ["lint-config", "build-all", "compile-firmware"]
+
+# Run all checks to verify system health
+[tasks.check-all]
+depends-on = ["check-qmk", "lint-config"]
+
+# Setup development environment and verify configuration
+[tasks.setup]
+depends-on = ["ensure-dirs", "check-qmk"]
+cmd = "echo 'Development environment is ready! Run: pixi run workflow'"
+
+# === Testing and Validation ===
+
+# Validate that SVG files were generated correctly
+[tasks.validate-svg]
+cmd = "python -c \"import os; files = [f for f in os.listdir('keyboard_layers') if f.endswith('.svg')]; print(f'Found {len(files)} SVG files'); [print(f'  - {f}') for f in sorted(files)]\""
+depends-on = ["generate-svg"]
+
+# Display keyboard configuration information
+[tasks.info]
+cmd = "qmk info phreedom.json"
+
+# === Documentation ===
+
+# Build HTML documentation from AsciiDoc source
+[tasks.build-html]
+cmd = "asciidoctor FreedBoard.adoc -o FreedBoard.html"
+
+# Build documentation in all formats (PDF and HTML)
+[tasks.build-docs]
+depends-on = ["build-pdf", "build-html"]
+
+[feature.dev.dependencies]
+# Development-specific dependencies
+black = "*"
+flake8 = "*"
+
+# Format Python code using black
+[feature.dev.tasks.format]
+cmd = "black scripts/"
+
+# Lint Python code using flake8
+[feature.dev.tasks.lint-python]
+cmd = "flake8 scripts/"
+
+[environments]
+default = { solve-group = "default" }
+dev = { features = ["dev"], solve-group = "default" }

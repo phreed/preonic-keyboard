@@ -1,0 +1,41 @@
+# Generated SVG layer files
+keyboard_layers/*.svg
+
+# Generated PDF documentation
+FreedBoard.pdf
+
+# QMK compiled firmware files
+*.bin
+*.hex
+*.elf
+*.map
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+*.so
+
+# Pixi environment
+.pixi/
+
+# IDE/Editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Build artifacts
+build/
+dist/
+
+# Temporary files
+*.tmp
+*.temp
