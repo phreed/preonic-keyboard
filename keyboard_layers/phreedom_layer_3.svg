@@ -1,0 +1,294 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="720" height="300" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      .key {
+        fill: #f0f0f0;
+        stroke: #333;
+        stroke-width: 1;
+        rx: 4;
+        ry: 4;
+      }
+      .key-text {
+        font-family: 'Courier New', monospace;
+        font-size: 10px;
+        text-anchor: middle;
+        dominant-baseline: middle;
+        fill: #333;
+      }
+      .key-secondary {
+        font-family: 'Courier New', monospace;
+        font-size: 8px;
+        text-anchor: middle;
+        dominant-baseline: middle;
+        fill: #666;
+      }
+      .layer-title {
+        font-family: Arial, sans-serif;
+        font-size: 16px;
+        font-weight: bold;
+        text-anchor: middle;
+        fill: #333;
+      }
+      .layer-subtitle {
+        font-family: Arial, sans-serif;
+        font-size: 12px;
+        text-anchor: middle;
+        fill: #666;
+      }
+    </style>
+  </defs>
+
+  <!-- Background -->
+  <rect width="720" height="300" fill="white"/>
+
+  <!-- Title Area -->
+  <text x="360" y="20" class="layer-title">phreedom - Layer 3</text>
+  <text x="360" y="35" class="layer-subtitle">Layout: LAYOUT_ortho_5x12</text>
+
+  <!-- Row 0 -->
+  <rect x="10" y="50" width="50" height="40" class="key" id="key-0"/>
+  <text x="35" y="68" class="key-text" id="text-0"></text>
+  <text x="35" y="78" class="key-secondary" id="subtext-0"></text>
+
+  <rect x="70" y="50" width="50" height="40" class="key" id="key-1"/>
+  <text x="95" y="68" class="key-text" id="text-1"></text>
+  <text x="95" y="78" class="key-secondary" id="subtext-1"></text>
+
+  <rect x="130" y="50" width="50" height="40" class="key" id="key-2"/>
+  <text x="155" y="68" class="key-text" id="text-2"></text>
+  <text x="155" y="78" class="key-secondary" id="subtext-2"></text>
+
+  <rect x="190" y="50" width="50" height="40" class="key" id="key-3"/>
+  <text x="215" y="68" class="key-text" id="text-3"></text>
+  <text x="215" y="78" class="key-secondary" id="subtext-3"></text>
+
+  <rect x="250" y="50" width="50" height="40" class="key" id="key-4"/>
+  <text x="275" y="68" class="key-text" id="text-4"></text>
+  <text x="275" y="78" class="key-secondary" id="subtext-4"></text>
+
+  <rect x="310" y="50" width="50" height="40" class="key" id="key-5"/>
+  <text x="335" y="68" class="key-text" id="text-5"></text>
+  <text x="335" y="78" class="key-secondary" id="subtext-5"></text>
+
+  <rect x="370" y="50" width="50" height="40" class="key" id="key-6"/>
+  <text x="395" y="68" class="key-text" id="text-6"></text>
+  <text x="395" y="78" class="key-secondary" id="subtext-6"></text>
+
+  <rect x="430" y="50" width="50" height="40" class="key" id="key-7"/>
+  <text x="455" y="68" class="key-text" id="text-7"></text>
+  <text x="455" y="78" class="key-secondary" id="subtext-7"></text>
+
+  <rect x="490" y="50" width="50" height="40" class="key" id="key-8"/>
+  <text x="515" y="68" class="key-text" id="text-8"></text>
+  <text x="515" y="78" class="key-secondary" id="subtext-8"></text>
+
+  <rect x="550" y="50" width="50" height="40" class="key" id="key-9"/>
+  <text x="575" y="68" class="key-text" id="text-9">/</text>
+  <text x="575" y="78" class="key-secondary" id="subtext-9"></text>
+
+  <rect x="610" y="50" width="50" height="40" class="key" id="key-10"/>
+  <text x="635" y="68" class="key-text" id="text-10">*</text>
+  <text x="635" y="78" class="key-secondary" id="subtext-10"></text>
+
+  <rect x="670" y="50" width="50" height="40" class="key" id="key-11"/>
+  <text x="695" y="68" class="key-text" id="text-11">-</text>
+  <text x="695" y="78" class="key-secondary" id="subtext-11"></text>
+
+  <!-- Row 1 -->
+  <rect x="10" y="100" width="50" height="40" class="key" id="key-12"/>
+  <text x="35" y="118" class="key-text" id="text-12"></text>
+  <text x="35" y="128" class="key-secondary" id="subtext-12"></text>
+
+  <rect x="70" y="100" width="50" height="40" class="key" id="key-13"/>
+  <text x="95" y="118" class="key-text" id="text-13"></text>
+  <text x="95" y="128" class="key-secondary" id="subtext-13"></text>
+
+  <rect x="130" y="100" width="50" height="40" class="key" id="key-14"/>
+  <text x="155" y="118" class="key-text" id="text-14"></text>
+  <text x="155" y="128" class="key-secondary" id="subtext-14"></text>
+
+  <rect x="190" y="100" width="50" height="40" class="key" id="key-15"/>
+  <text x="215" y="118" class="key-text" id="text-15"></text>
+  <text x="215" y="128" class="key-secondary" id="subtext-15"></text>
+
+  <rect x="250" y="100" width="50" height="40" class="key" id="key-16"/>
+  <text x="275" y="118" class="key-text" id="text-16"></text>
+  <text x="275" y="128" class="key-secondary" id="subtext-16"></text>
+
+  <rect x="310" y="100" width="50" height="40" class="key" id="key-17"/>
+  <text x="335" y="118" class="key-text" id="text-17"></text>
+  <text x="335" y="128" class="key-secondary" id="subtext-17"></text>
+
+  <rect x="370" y="100" width="50" height="40" class="key" id="key-18"/>
+  <text x="395" y="118" class="key-text" id="text-18"></text>
+  <text x="395" y="128" class="key-secondary" id="subtext-18"></text>
+
+  <rect x="430" y="100" width="50" height="40" class="key" id="key-19"/>
+  <text x="455" y="118" class="key-text" id="text-19"></text>
+  <text x="455" y="128" class="key-secondary" id="subtext-19"></text>
+
+  <rect x="490" y="100" width="50" height="40" class="key" id="key-20"/>
+  <text x="515" y="118" class="key-text" id="text-20">7</text>
+  <text x="515" y="128" class="key-secondary" id="subtext-20"></text>
+
+  <rect x="550" y="100" width="50" height="40" class="key" id="key-21"/>
+  <text x="575" y="118" class="key-text" id="text-21">8</text>
+  <text x="575" y="128" class="key-secondary" id="subtext-21"></text>
+
+  <rect x="610" y="100" width="50" height="40" class="key" id="key-22"/>
+  <text x="635" y="118" class="key-text" id="text-22">9</text>
+  <text x="635" y="128" class="key-secondary" id="subtext-22"></text>
+
+  <rect x="670" y="100" width="50" height="40" class="key" id="key-23"/>
+  <text x="695" y="118" class="key-text" id="text-23">+</text>
+  <text x="695" y="128" class="key-secondary" id="subtext-23"></text>
+
+  <!-- Row 2 -->
+  <rect x="10" y="150" width="50" height="40" class="key" id="key-24"/>
+  <text x="35" y="168" class="key-text" id="text-24"></text>
+  <text x="35" y="178" class="key-secondary" id="subtext-24"></text>
+
+  <rect x="70" y="150" width="50" height="40" class="key" id="key-25"/>
+  <text x="95" y="168" class="key-text" id="text-25"></text>
+  <text x="95" y="178" class="key-secondary" id="subtext-25"></text>
+
+  <rect x="130" y="150" width="50" height="40" class="key" id="key-26"/>
+  <text x="155" y="168" class="key-text" id="text-26"></text>
+  <text x="155" y="178" class="key-secondary" id="subtext-26"></text>
+
+  <rect x="190" y="150" width="50" height="40" class="key" id="key-27"/>
+  <text x="215" y="168" class="key-text" id="text-27"></text>
+  <text x="215" y="178" class="key-secondary" id="subtext-27"></text>
+
+  <rect x="250" y="150" width="50" height="40" class="key" id="key-28"/>
+  <text x="275" y="168" class="key-text" id="text-28"></text>
+  <text x="275" y="178" class="key-secondary" id="subtext-28"></text>
+
+  <rect x="310" y="150" width="50" height="40" class="key" id="key-29"/>
+  <text x="335" y="168" class="key-text" id="text-29"></text>
+  <text x="335" y="178" class="key-secondary" id="subtext-29"></text>
+
+  <rect x="370" y="150" width="50" height="40" class="key" id="key-30"/>
+  <text x="395" y="168" class="key-text" id="text-30"></text>
+  <text x="395" y="178" class="key-secondary" id="subtext-30"></text>
+
+  <rect x="430" y="150" width="50" height="40" class="key" id="key-31"/>
+  <text x="455" y="168" class="key-text" id="text-31"></text>
+  <text x="455" y="178" class="key-secondary" id="subtext-31"></text>
+
+  <rect x="490" y="150" width="50" height="40" class="key" id="key-32"/>
+  <text x="515" y="168" class="key-text" id="text-32">4</text>
+  <text x="515" y="178" class="key-secondary" id="subtext-32"></text>
+
+  <rect x="550" y="150" width="50" height="40" class="key" id="key-33"/>
+  <text x="575" y="168" class="key-text" id="text-33">5</text>
+  <text x="575" y="178" class="key-secondary" id="subtext-33"></text>
+
+  <rect x="610" y="150" width="50" height="40" class="key" id="key-34"/>
+  <text x="635" y="168" class="key-text" id="text-34">6</text>
+  <text x="635" y="178" class="key-secondary" id="subtext-34"></text>
+
+  <rect x="670" y="150" width="50" height="40" class="key" id="key-35"/>
+  <text x="695" y="168" class="key-text" id="text-35">,</text>
+  <text x="695" y="178" class="key-secondary" id="subtext-35"></text>
+
+  <!-- Row 3 -->
+  <rect x="10" y="200" width="50" height="40" class="key" id="key-36"/>
+  <text x="35" y="218" class="key-text" id="text-36"></text>
+  <text x="35" y="228" class="key-secondary" id="subtext-36"></text>
+
+  <rect x="70" y="200" width="50" height="40" class="key" id="key-37"/>
+  <text x="95" y="218" class="key-text" id="text-37"></text>
+  <text x="95" y="228" class="key-secondary" id="subtext-37"></text>
+
+  <rect x="130" y="200" width="50" height="40" class="key" id="key-38"/>
+  <text x="155" y="218" class="key-text" id="text-38"></text>
+  <text x="155" y="228" class="key-secondary" id="subtext-38"></text>
+
+  <rect x="190" y="200" width="50" height="40" class="key" id="key-39"/>
+  <text x="215" y="218" class="key-text" id="text-39"></text>
+  <text x="215" y="228" class="key-secondary" id="subtext-39"></text>
+
+  <rect x="250" y="200" width="50" height="40" class="key" id="key-40"/>
+  <text x="275" y="218" class="key-text" id="text-40"></text>
+  <text x="275" y="228" class="key-secondary" id="subtext-40"></text>
+
+  <rect x="310" y="200" width="50" height="40" class="key" id="key-41"/>
+  <text x="335" y="218" class="key-text" id="text-41"></text>
+  <text x="335" y="228" class="key-secondary" id="subtext-41"></text>
+
+  <rect x="370" y="200" width="50" height="40" class="key" id="key-42"/>
+  <text x="395" y="218" class="key-text" id="text-42"></text>
+  <text x="395" y="228" class="key-secondary" id="subtext-42"></text>
+
+  <rect x="430" y="200" width="50" height="40" class="key" id="key-43"/>
+  <text x="455" y="218" class="key-text" id="text-43"></text>
+  <text x="455" y="228" class="key-secondary" id="subtext-43"></text>
+
+  <rect x="490" y="200" width="50" height="40" class="key" id="key-44"/>
+  <text x="515" y="218" class="key-text" id="text-44">1</text>
+  <text x="515" y="228" class="key-secondary" id="subtext-44"></text>
+
+  <rect x="550" y="200" width="50" height="40" class="key" id="key-45"/>
+  <text x="575" y="218" class="key-text" id="text-45">2</text>
+  <text x="575" y="228" class="key-secondary" id="subtext-45"></text>
+
+  <rect x="610" y="200" width="50" height="40" class="key" id="key-46"/>
+  <text x="635" y="218" class="key-text" id="text-46">3</text>
+  <text x="635" y="228" class="key-secondary" id="subtext-46"></text>
+
+  <rect x="670" y="200" width="50" height="40" class="key" id="key-47"/>
+  <text x="695" y="218" class="key-text" id="text-47">=</text>
+  <text x="695" y="228" class="key-secondary" id="subtext-47"></text>
+
+  <!-- Row 4 -->
+  <rect x="10" y="250" width="50" height="40" class="key" id="key-48"/>
+  <text x="35" y="268" class="key-text" id="text-48"></text>
+  <text x="35" y="278" class="key-secondary" id="subtext-48"></text>
+
+  <rect x="70" y="250" width="50" height="40" class="key" id="key-49"/>
+  <text x="95" y="268" class="key-text" id="text-49"></text>
+  <text x="95" y="278" class="key-secondary" id="subtext-49"></text>
+
+  <rect x="130" y="250" width="50" height="40" class="key" id="key-50"/>
+  <text x="155" y="268" class="key-text" id="text-50"></text>
+  <text x="155" y="278" class="key-secondary" id="subtext-50"></text>
+
+  <rect x="190" y="250" width="50" height="40" class="key" id="key-51"/>
+  <text x="215" y="268" class="key-text" id="text-51"></text>
+  <text x="215" y="278" class="key-secondary" id="subtext-51"></text>
+
+  <rect x="250" y="250" width="50" height="40" class="key" id="key-52"/>
+  <text x="275" y="268" class="key-text" id="text-52"></text>
+  <text x="275" y="278" class="key-secondary" id="subtext-52"></text>
+
+  <rect x="310" y="250" width="50" height="40" class="key" id="key-53"/>
+  <text x="335" y="268" class="key-text" id="text-53"></text>
+  <text x="335" y="278" class="key-secondary" id="subtext-53"></text>
+
+  <rect x="370" y="250" width="50" height="40" class="key" id="key-54"/>
+  <text x="395" y="268" class="key-text" id="text-54"></text>
+  <text x="395" y="278" class="key-secondary" id="subtext-54"></text>
+
+  <rect x="430" y="250" width="50" height="40" class="key" id="key-55"/>
+  <text x="455" y="268" class="key-text" id="text-55"></text>
+  <text x="455" y="278" class="key-secondary" id="subtext-55"></text>
+
+  <rect x="490" y="250" width="50" height="40" class="key" id="key-56"/>
+  <text x="515" y="268" class="key-text" id="text-56">0</text>
+  <text x="515" y="278" class="key-secondary" id="subtext-56"></text>
+
+  <rect x="550" y="250" width="50" height="40" class="key" id="key-57"/>
+  <text x="575" y="268" class="key-text" id="text-57">0</text>
+  <text x="575" y="278" class="key-secondary" id="subtext-57"></text>
+
+  <rect x="610" y="250" width="50" height="40" class="key" id="key-58"/>
+  <text x="635" y="268" class="key-text" id="text-58">.</text>
+  <text x="635" y="278" class="key-secondary" id="subtext-58"></text>
+
+  <rect x="670" y="250" width="50" height="40" class="key" id="key-59"/>
+  <text x="695" y="268" class="key-text" id="text-59">↵</text>
+  <text x="695" y="278" class="key-secondary" id="subtext-59"></text>
+
+</svg>

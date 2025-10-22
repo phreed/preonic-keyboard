@@ -1,8 +1,9 @@
 # Generated SVG layer files
-keyboard_layers/*.svg
+# keyboard_layers/*.svg
 
 # Generated PDF documentation
 FreedBoard.pdf
+FreedBoard.html
 
 # QMK compiled firmware files
 *.bin
