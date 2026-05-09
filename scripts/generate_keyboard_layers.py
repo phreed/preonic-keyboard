@@ -3,8 +3,9 @@
 Keyboard Layer Visualization Generator
 
 This script reads a QMK keyboard.json file and generates SVG visualizations
-for each layer using a template SVG file. Features enhanced keycode parsing
-with symbolic representations for modifier combinations and special keys.
+for each layer using a template SVG file.
+Features enhanced keycode parsing with symbolic representations
+for modifier combinations and special keys.
 
 Usage:
     python generate_keyboard_layers.py [keyboard.json] [template.svg]
