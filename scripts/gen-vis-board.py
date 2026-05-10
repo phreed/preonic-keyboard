@@ -529,7 +529,7 @@ def main():
         sys.exit(1)
 
     # Create output directory
-    output_dir = Path("gen/keyboard_layers")
+    output_dir = Path("cache/keyboard_layers")
     output_dir.mkdir(exist_ok=True)
 
     # Generate layer SVGs

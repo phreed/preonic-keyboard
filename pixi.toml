@@ -27,14 +27,14 @@ asciidoctor = "*"
 
 # === Core ===
 
-[tasks.generate-phreedom]
+[tasks.generate-board]
 cmd = "python scripts/gen-json-board.py"
 description = "Compile src/freed-board.toml → gen/freed-board.json (QMK Configurator format)"
 
 [tasks.generate-svg]
 cmd = "python scripts/gen-vis-board.py gen/freed-board.json src/layout-templates/LAYOUT_ortho_5x12-template.svg"
-depends-on = ["generate-phreedom"]
-description = "Generate SVG layer visualizations in gen/keyboard_layers/"
+depends-on = ["generate-board"]
+description = "Generate SVG layer visualizations in cache/keyboard_layers/"
 
 [tasks.build-pdf]
 cmd = "asciidoctor-pdf src/freed-board.adoc -o gen/freed-board.pdf"
@@ -73,12 +73,12 @@ description = "Full pipeline: lint → build → compile"
 # === Utility ===
 
 [tasks.ensure-dirs]
-cmd = "mkdir -p gen/keyboard_layers"
+cmd = "mkdir -p cache/keyboard_layers"
 description = "Create output directories under gen/"
 
 [tasks.clean]
 cmd = [
-    "rm -rf gen/keyboard_layers/*.svg",
+    "rm -rf cache/keyboard_layers/*.svg",
     "rm -f gen/freed-board.pdf gen/freed-board.html",
     "rm -f *.bin *.hex *.elf *.map"
 ]
@@ -107,7 +107,7 @@ description = "Install AsciiDoctor and AsciiDoctor-PDF via gem (Windows / manual
 # === Validation ===
 
 [tasks.validate-svg]
-cmd = "python -c \"import os; files = [f for f in os.listdir('gen/keyboard_layers') if f.endswith('.svg')]; print(f'Found {len(files)} SVG files'); [print(f'  - {f}') for f in sorted(files)]\""
+cmd = "python -c \"import os; files = [f for f in os.listdir('cache/keyboard_layers') if f.endswith('.svg')]; print(f'Found {len(files)} SVG files'); [print(f'  - {f}') for f in sorted(files)]\""
 depends-on = ["generate-svg"]
 description = "List generated SVG files and confirm count"
 

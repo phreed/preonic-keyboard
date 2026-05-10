@@ -116,37 +116,37 @@ The FreedBoard keyboard uses a 5×12 ortholinear layout with 60 keys total, comp
 
 The base layer provides standard QWERTY layout with strategic modifier placement.
 
-image::../gen/keyboard_layers/freed-board-layer-0.svg[Layer 0 - Base Layer]
+image::../cache/keyboard_layers/freed-board-layer-0.svg[Layer 0 - Base Layer]
 
 === Layer 1 - Shifted Characters
 
 Layer 1 provides access to shifted characters and symbols.
 
-image::../gen/keyboard_layers/freed-board-layer-1.svg[Layer 1 - Shifted Characters]
+image::../cache/keyboard_layers/freed-board-layer-1.svg[Layer 1 - Shifted Characters]
 
 === Layer 2 - Advanced/Function Layer
 
 Layer 2 features home-row modifiers and advanced key combinations for efficient typing.
 
-image::../gen/keyboard_layers/freed-board-layer-2.svg[Layer 2 - Advanced/Function Layer]
+image::../cache/keyboard_layers/freed-board-layer-2.svg[Layer 2 - Advanced/Function Layer]
 
 === Layer 3 - Symbols and Navigation
 
 Layer 3 provides additional symbols and function keys F1-F5.
 
-image::../gen/keyboard_layers/freed-board-layer-3.svg[Layer 3 - Symbols and Navigation]
+image::../cache/keyboard_layers/freed-board-layer-3.svg[Layer 3 - Symbols and Navigation]
 
 === Layer 4 - Function Keys and Navigation
 
 Layer 4 provides function keys and navigation controls including arrow keys and page navigation.
 
-image::../gen/keyboard_layers/freed-board-layer-4.svg[Layer 4 - Function Keys and Navigation]
+image::../cache/keyboard_layers/freed-board-layer-4.svg[Layer 4 - Function Keys and Navigation]
 
 === Layer 5 - System Functions
 
 Layer 5 contains system functions, boot controls, and audio/media keys.
 
-image::../gen/keyboard_layers/freed-board-layer-5.svg[Layer 5 - System Functions]
+image::../cache/keyboard_layers/freed-board-layer-5.svg[Layer 5 - System Functions]
 
 == Layer Visualization
 

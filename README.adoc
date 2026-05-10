@@ -31,7 +31,7 @@ pixi run workflow
 |===
 | Task | Description
 
-| generate-phreedom
+| generate-board
 | Compile `freed-board.toml` → `freed-board.json` (QMK Configurator format)
 
 | generate-svg
@@ -47,7 +47,7 @@ pixi run workflow
 | Build both PDF and HTML documentation
 
 | build-all
-| Generate SVGs and build PDF (`ensure-dirs` → `generate-phreedom` → `generate-svg` → `build-pdf`)
+| Generate SVGs and build PDF (`ensure-dirs` → `generate-board` → `generate-svg` → `build-pdf`)
 
 | lint-config
 | Lint `freed-board.json` using the QMK CLI
@@ -83,15 +83,16 @@ preonic-keyboard/
 │   ├── freed-board.toml                    # Human-editable layout source
 │   └── layout-templates/
 │       └── LAYOUT_ortho_5x12-template.svg  # SVG template for the Preonic layout
-├── gen/                                    # All generated output
+├── cache/
+│   └── keyboard_layers/                    # SVG visualizations (one per layer, tracked)
+├── gen/                                    # Build output (git-ignored)
+│   ├── freed-board.json
 │   ├── freed-board.html
-│   ├── freed-board.pdf
-│   ├── keyboard_layers/                    # SVG visualizations (one per layer)
-│   └── freed-board.json                    # QMK Configurator export (generated)
+│   └── freed-board.pdf
 ├── pixi.toml                               # Task runner and dependency manifest
 └── scripts/
     ├── gen-json-board.py                   # Converts src/freed-board.toml → freed-board.json
-    └── gen-vis-board.py                    # Generates gen/keyboard_layers/ SVGs
+    └── gen-vis-board.py                    # Generates cache/keyboard_layers/ SVGs
 ----
 
 == Editing the Layout
@@ -101,7 +102,7 @@ Edit `src/freed-board.toml`, then regenerate `freed-board.json`:
 
 [source,bash]
 ----
-pixi run generate-phreedom
+pixi run generate-board
 ----
 
 === TOML Format
@@ -249,6 +250,6 @@ QMK not found::
 
 == See Also
 
-* `src/freed-board.adoc` — detailed documentation of the layout design and modifier philosophy
+* link:src/freed-board.adoc[FreedBoard layout documentation] — layout design, modifier philosophy, and per-layer SVG diagrams
 * https://docs.qmk.fm[QMK Firmware documentation]
 * https://config.qmk.fm[QMK Configurator] — import `freed-board.json` to visualise online
