@@ -80,18 +80,18 @@ pixi run workflow
 preonic-keyboard/
 ├── src/
 │   ├── freed-board.adoc                    # Detailed layout documentation
-│   ├── freed-board.toml                      # Human-editable layout source
+│   ├── freed-board.toml                    # Human-editable layout source
 │   └── layout-templates/
-│       └── LAYOUT_ortho_5x12-template.svg # SVG template for the Preonic layout
-├── gen/                                   # All generated output
+│       └── LAYOUT_ortho_5x12-template.svg  # SVG template for the Preonic layout
+├── gen/                                    # All generated output
 │   ├── freed-board.html
 │   ├── freed-board.pdf
-│   └── keyboard_layers/                   # SVG visualizations (one per layer)
-├── freed-board.json                          # QMK Configurator export (generated)
-├── pixi.toml                              # Task runner and dependency manifest
+│   ├── keyboard_layers/                    # SVG visualizations (one per layer)
+│   └── freed-board.json                    # QMK Configurator export (generated)
+├── pixi.toml                               # Task runner and dependency manifest
 └── scripts/
-    ├── gen-json-board.py               # Converts src/freed-board.toml → freed-board.json
-    └── gen-vis-board.py        # Generates gen/keyboard_layers/ SVGs
+    ├── gen-json-board.py                   # Converts src/freed-board.toml → freed-board.json
+    └── gen-vis-board.py                    # Generates gen/keyboard_layers/ SVGs
 ----
 
 == Editing the Layout
