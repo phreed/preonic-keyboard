@@ -1,9 +1,10 @@
 # Generated SVG layer files
 # keyboard_layers/*.svg
 
-# Generated PDF documentation
-FreedBoard.pdf
-FreedBoard.html
+# Generated files
+gen/
+build/
+dist/
 
 # QMK compiled firmware files
 *.bin
@@ -33,9 +34,6 @@ __pycache__/
 .DS_Store
 Thumbs.db
 
-# Build artifacts
-build/
-dist/
 
 # Temporary files
 *.tmp

@@ -1,0 +1,266 @@
+[meta]
+version = 1
+notes = "FreedBoard keyboard layout - A modern keyboard implementation with advanced modifier handling and multiple layers for ortholinear keyboards"
+keyboard = "preonic/rev3"
+keymap = "freed-board"
+layout = "LAYOUT_ortho_5x12"
+author = "FreedBoard Layout - Based on presentation analysis"
+# documentation is wrapped in quotes by the QMK format; the script adds them back
+documentation = """
+This file is a QMK Configurator export.
+You can import this at <https://config.qmk.fm>.
+It can also be used directly with QMK's source code.
+
+To setup your QMK environment check out the tutorial: <https://docs.qmk.fm/#/newbs>
+
+You can convert this file to a keymap.c using this command: `qmk json2c {keymap}`
+
+You can compile this keymap using this command: `qmk compile {keymap}`
+"""
+
+
+# -----------------------------------------------------------------------
+# Layer 0: Base
+# -----------------------------------------------------------------------
+[[layers]]
+name = "base"
+
+# Number row — digits left, symbols right of center (GRV / QUOT as dividers)
+row0 = [
+  "KC_1",   "KC_2",   "KC_3",   "KC_4",   "KC_5",
+  "KC_GRV", "KC_QUOT",
+  "KC_6",   "KC_7",   "KC_8",   "KC_9",   "KC_0",
+]
+
+# Top alpha row — GUI/ALT/CTL combos on W/E/R; RCTL combos on U/I/O
+row1 = [
+  "KC_Q", {key="KC_W", mod="LGUI"}, {key="KC_E", mod="LALT"}, {key="KC_R", mod="LCTL"},
+  "KC_T", "KC_MINS", "KC_EQL",
+  "KC_Y", {key="KC_U", mod="RCTL"}, {key="KC_I", mod="RCTL"}, {key="KC_O", mod="RCTL"}, "KC_P",
+]
+
+# Home row — brackets as inner-column dividers
+row2 = [
+  "KC_A", "KC_S", "KC_D", "KC_F", "KC_G",
+  "KC_LBRC", "KC_RBRC",
+  "KC_H", "KC_J", "KC_K", "KC_L", "KC_SCLN",
+]
+
+# Bottom row — smart-shift parens as inner-column dividers
+row3 = [
+  "KC_Z", "KC_X", "KC_C", "KC_V", "KC_B",
+  "SC_LSPO", "SC_RSPC",
+  "KC_N", "KC_M", "KC_COMM", "KC_DOT", "KC_SLSH",
+]
+
+# Thumb / modifier row
+row4 = [
+  "MO(2)", "KC_ESC", "KC_BSPC", "KC_ENT", {key="KC_TAB", mod="LSFT"},
+  "MO(4)", "MO(3)",
+  "KC_TAB", "KC_SPC", "KC_DEL", "QK_REP", "MO(5)",
+]
+
+
+# -----------------------------------------------------------------------
+# Layer 1: Shift  (accessed transparently via SC_LSPO / SC_RSPC)
+# -----------------------------------------------------------------------
+[[layers]]
+name = "shift"
+
+# Shifted number row — standard symbol pairs
+row0 = [
+  "KC_EXLM", "KC_AT",   "KC_HASH", "KC_DLR",  "KC_PERC",
+  "KC_TILD", "KC_DQUO",
+  "KC_CIRC", "KC_AMPR", "KC_ASTR", "KC_LPRN", "KC_RPRN",
+]
+
+# Shifted top alpha row
+row1 = [
+  {key="KC_Q", mod="LSFT"}, {key="KC_W", mod="LSFT"}, {key="KC_E", mod="LSFT"}, {key="KC_R", mod="LSFT"},
+  {key="KC_T", mod="LSFT"}, "KC_UNDS", "KC_PLUS",
+  {key="KC_Y", mod="LSFT"}, {key="KC_U", mod="LSFT"}, {key="KC_I", mod="LSFT"}, {key="KC_O", mod="LSFT"}, {key="KC_P", mod="LSFT"},
+]
+
+# Shifted home row — curly braces as inner-column dividers
+row2 = [
+  {key="KC_A", mod="LSFT"}, {key="KC_S", mod="LSFT"}, {key="KC_D", mod="LSFT"}, {key="KC_F", mod="LSFT"},
+  {key="KC_G", mod="LSFT"}, "KC_LCBR", "KC_RCBR",
+  {key="KC_H", mod="LSFT"}, {key="KC_J", mod="LSFT"}, {key="KC_K", mod="LSFT"}, {key="KC_L", mod="LSFT"}, "KC_COLN",
+]
+
+# Shifted bottom row — angle brackets / question mark
+row3 = [
+  {key="KC_Z", mod="LSFT"}, {key="KC_X", mod="LSFT"}, {key="KC_C", mod="LSFT"}, {key="KC_V", mod="LSFT"},
+  {key="KC_B", mod="LSFT"}, "KC_TRNS", "KC_TRNS",
+  {key="KC_N", mod="LSFT"}, {key="KC_M", mod="LSFT"}, "KC_LT", "KC_GT", "KC_QUES",
+]
+
+# Thumb row — transparent
+row4 = [
+  "KC_TRNS", "KC_TRNS", "KC_TRNS", "KC_TRNS", "KC_TRNS",
+  "KC_TRNS", "KC_TRNS",
+  "KC_TRNS", "KC_TRNS", "KC_TRNS", "KC_TRNS", "KC_TRNS",
+]
+
+
+# -----------------------------------------------------------------------
+# Layer 2: Function keys  (activated by MO(2))
+# -----------------------------------------------------------------------
+[[layers]]
+name = "function"
+
+# F1-F5 | F11/F12 | F6-F10  (same on top two rows for easy reach)
+row0 = [
+  "KC_F1", "KC_F2", "KC_F3", "KC_F4", "KC_F5",
+  "KC_F11", "KC_F12",
+  "KC_F6", "KC_F7", "KC_F8", "KC_F9", "KC_F10",
+]
+
+row1 = [
+  "KC_F1", "KC_F2", "KC_F3", "KC_F4", "KC_F5",
+  "KC_F11", "KC_F12",
+  "KC_F6", "KC_F7", "KC_F8", "KC_F9", "KC_F10",
+]
+
+# Home row — one-shot modifier keys
+row2 = [
+  "KC_LSFT", "KC_LGUI", "KC_LCTL", "KC_LALT", "KC_NO",
+  "KC_NO", "KC_NO",
+  "KC_NO", "KC_RALT", "KC_RCTL", "KC_RGUI", "KC_RSFT",
+]
+
+row3 = [
+  "KC_NO", "KC_NO", "KC_NO", "KC_NO", "KC_NO",
+  "KC_NO", "KC_NO",
+  "KC_NO", "KC_NO", "KC_NO", "KC_NO", "KC_NO",
+]
+
+row4 = [
+  "KC_NO", "KC_NO", "KC_NO", "KC_NO", "KC_NO",
+  "KC_NO", "KC_NO",
+  "KC_NO", "KC_NO", "KC_NO", "KC_NO", "KC_NO",
+]
+
+
+# -----------------------------------------------------------------------
+# Layer 3: Numpad  (activated by MO(3))
+# -----------------------------------------------------------------------
+[[layers]]
+name = "numpad"
+
+# Arithmetic operators in top-right corner
+row0 = [
+  "KC_NO", "KC_NO", "KC_NO", "KC_NO", "KC_NO",
+  "KC_NO", "KC_NO",
+  "KC_NO", "KC_NO", "KC_PSLS", "KC_PAST", "KC_PMNS",
+]
+
+# 7 8 9  +
+row1 = [
+  "KC_NO", "KC_NO", "KC_NO", "KC_NO", "KC_NO",
+  "KC_NO", "KC_NO",
+  "KC_NO", "KC_P7", "KC_P8", "KC_P9", "KC_PPLS",
+]
+
+# 4 5 6  ,
+row2 = [
+  "KC_NO", "KC_NO", "KC_NO", "KC_NO", "KC_NO",
+  "KC_NO", "KC_NO",
+  "KC_NO", "KC_P4", "KC_P5", "KC_P6", "KC_PCMM",
+]
+
+# 1 2 3  =
+row3 = [
+  "KC_NO", "KC_NO", "KC_NO", "KC_NO", "KC_NO",
+  "KC_NO", "KC_NO",
+  "KC_NO", "KC_P1", "KC_P2", "KC_P3", "KC_PEQL",
+]
+
+# 0  0  .  Enter
+row4 = [
+  "KC_NO", "KC_NO", "KC_NO", "KC_NO", "KC_NO",
+  "KC_NO", "KC_NO",
+  "KC_NO", "KC_P0", "KC_P0", "KC_PDOT", "KC_PENT",
+]
+
+
+# -----------------------------------------------------------------------
+# Layer 4: Navigation  (activated by MO(4))
+# -----------------------------------------------------------------------
+[[layers]]
+name = "navigation"
+
+row0 = [
+  "KC_NO", "KC_NO", "KC_NO", "KC_NO", "KC_NO",
+  "KC_NO", "KC_NO",
+  "KC_NO", "KC_NO", "KC_NO", "KC_NO", "KC_NO",
+]
+
+# Home / Up / End / PgUp
+row1 = [
+  "KC_NO", "KC_NO", "KC_NO", "KC_NO", "KC_NO",
+  "KC_NO", "KC_NO",
+  "KC_NO", "KC_HOME", "KC_UP", "KC_END", "KC_PGUP",
+]
+
+# Left / (center empty) / Right
+row2 = [
+  "KC_NO", "KC_NO", "KC_NO", "KC_NO", "KC_NO",
+  "KC_NO", "KC_NO",
+  "KC_NO", "KC_LEFT", "KC_NO", "KC_RGHT", "KC_NO",
+]
+
+# (empty) / Down / (empty) / PgDn
+row3 = [
+  "KC_NO", "KC_NO", "KC_NO", "KC_NO", "KC_NO",
+  "KC_NO", "KC_NO",
+  "KC_NO", "KC_NO", "KC_DOWN", "KC_NO", "KC_PGDN",
+]
+
+row4 = [
+  "KC_NO", "KC_NO", "KC_NO", "KC_NO", "KC_NO",
+  "KC_NO", "KC_NO",
+  "KC_NO", "KC_NO", "KC_NO", "KC_NO", "KC_NO",
+]
+
+
+# -----------------------------------------------------------------------
+# Layer 5: System  (activated by MO(5))
+# -----------------------------------------------------------------------
+[[layers]]
+name = "system"
+
+# Boot key + F1-F10
+row0 = [
+  "QK_BOOT", "KC_NO", "KC_F1", "KC_F2", "KC_F3",
+  "KC_F4",   "KC_F5",
+  "KC_F6",   "KC_F7", "KC_F8", "KC_F9", "KC_F10",
+]
+
+# Reboot
+row1 = [
+  "QK_RBT", "KC_NO", "KC_NO", "KC_NO", "KC_NO",
+  "KC_NO",  "KC_NO",
+  "KC_NO",  "KC_NO", "KC_NO", "KC_NO", "KC_NO",
+]
+
+# Debug toggle
+row2 = [
+  "DB_TOGG", "KC_NO", "KC_NO", "KC_NO", "KC_NO",
+  "KC_NO",   "KC_NO",
+  "KC_NO",   "KC_NO", "KC_NO", "KC_NO", "KC_NO",
+]
+
+# EEPROM clear
+row3 = [
+  "EE_CLR", "KC_NO", "KC_NO", "KC_NO", "KC_NO",
+  "KC_NO",  "KC_NO",
+  "KC_NO",  "KC_NO", "KC_NO", "KC_NO", "KC_NO",
+]
+
+# F11 / F12
+row4 = [
+  "KC_F11", "KC_F12", "KC_NO", "KC_NO", "KC_NO",
+  "KC_NO",  "KC_NO",
+  "KC_NO",  "KC_NO",  "KC_NO", "KC_NO", "KC_NO",
+]

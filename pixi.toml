@@ -1,4 +1,4 @@
-[project]
+[workspace]
 name = "preonic-keyboard"
 version = "0.1.0"
 description = "FreedBoard keyboard layout - A modern keyboard implementation with advanced modifier handling and multiple layers for ortholinear keyboards"
@@ -25,105 +25,108 @@ asciidoctor = "*"
 
 [tasks]
 
-# === Core Tasks ===
+# === Core ===
 
-# Generate SVG layer visualizations from keyboard configuration
+[tasks.generate-phreedom]
+cmd = "python scripts/gen-json-board.py"
+description = "Compile src/freed-board.toml → gen/freed-board.json (QMK Configurator format)"
+
 [tasks.generate-svg]
-cmd = "python scripts/generate_keyboard_layers.py phreedom.json layout-templates/LAYOUT_ortho_5x12-template.svg"
+cmd = "python scripts/gen-vis-board.py gen/freed-board.json src/layout-templates/LAYOUT_ortho_5x12-template.svg"
+depends-on = ["generate-phreedom"]
+description = "Generate SVG layer visualizations in gen/keyboard_layers/"
 
-# Build PDF documentation from AsciiDoc source
 [tasks.build-pdf]
-cmd = "asciidoctor-pdf FreedBoard.adoc -o FreedBoard.pdf"
+cmd = "asciidoctor-pdf src/freed-board.adoc -o gen/freed-board.pdf"
+description = "Build PDF documentation from src/freed-board.adoc"
 
-# Lint the keyboard configuration file using QMK
+[tasks.build-html]
+cmd = "asciidoctor src/freed-board.adoc -o gen/freed-board.html"
+description = "Build HTML documentation from src/freed-board.adoc"
+
+[tasks.build-docs]
+depends-on = ["build-pdf", "build-html"]
+description = "Build documentation in both PDF and HTML formats"
+
 [tasks.lint-config]
-cmd = "qmk lint phreedom.json"
+cmd = "qmk lint gen/freed-board.json"
+description = "Lint gen/freed-board.json using the QMK CLI"
 
-# Compile firmware from keyboard configuration
 [tasks.compile-firmware]
-cmd = "qmk compile phreedom.json"
+cmd = "qmk compile gen/freed-board.json"
+description = "Compile QMK firmware from gen/freed-board.json"
 
-# Flash the keyboard with compiled firmware (requires connected device)
 [tasks.flash-keyboard]
-cmd = "qmk flash phreedom.json"
+cmd = "qmk flash gen/freed-board.json"
+description = "Flash keyboard firmware (requires a connected device)"
 
-# === Utility Tasks ===
+# === Composite ===
 
-# Remove all generated files
+[tasks.build-all]
+depends-on = ["ensure-dirs", "generate-svg", "build-pdf"]
+description = "Generate SVGs and build PDF documentation"
+
+[tasks.workflow]
+depends-on = ["lint-config", "build-all", "compile-firmware"]
+description = "Full pipeline: lint → build → compile"
+
+# === Utility ===
+
+[tasks.ensure-dirs]
+cmd = "mkdir -p gen/keyboard_layers"
+description = "Create output directories under gen/"
+
 [tasks.clean]
 cmd = [
-    "rm -rf keyboard_layers/*.svg",
-    "rm -f FreedBoard.pdf",
+    "rm -rf gen/keyboard_layers/*.svg",
+    "rm -f gen/freed-board.pdf gen/freed-board.html",
     "rm -f *.bin *.hex *.elf *.map"
 ]
+description = "Remove all generated files (SVGs, docs, firmware binaries)"
 
-# Ensure output directories exist
-[tasks.ensure-dirs]
-cmd = "mkdir -p keyboard_layers"
-
-# Check QMK installation and configuration
 [tasks.check-qmk]
 cmd = "qmk doctor"
+description = "Verify QMK installation and environment"
 
-# Install AsciiDoctor and AsciiDoctor-PDF via gem
+[tasks.check-all]
+depends-on = ["check-qmk", "lint-config"]
+description = "Run all health checks"
+
+[tasks.setup]
+depends-on = ["ensure-dirs", "check-qmk"]
+cmd = "echo 'Development environment is ready! Run: pixi run workflow'"
+description = "Set up development environment and verify configuration"
+
 [tasks.install-asciidoctor]
 cmd = [
     "gem install asciidoctor",
     "gem install asciidoctor-pdf"
 ]
+description = "Install AsciiDoctor and AsciiDoctor-PDF via gem (Windows / manual fallback)"
 
-# === Composite Tasks ===
+# === Validation ===
 
-# Generate all outputs (SVG layers and PDF documentation)
-[tasks.build-all]
-depends-on = ["ensure-dirs", "generate-svg", "build-pdf"]
-
-# Full development workflow: lint → build → compile
-[tasks.workflow]
-depends-on = ["lint-config", "build-all", "compile-firmware"]
-
-# Run all checks to verify system health
-[tasks.check-all]
-depends-on = ["check-qmk", "lint-config"]
-
-# Setup development environment and verify configuration
-[tasks.setup]
-depends-on = ["ensure-dirs", "check-qmk"]
-cmd = "echo 'Development environment is ready! Run: pixi run workflow'"
-
-# === Testing and Validation ===
-
-# Validate that SVG files were generated correctly
 [tasks.validate-svg]
-cmd = "python -c \"import os; files = [f for f in os.listdir('keyboard_layers') if f.endswith('.svg')]; print(f'Found {len(files)} SVG files'); [print(f'  - {f}') for f in sorted(files)]\""
+cmd = "python -c \"import os; files = [f for f in os.listdir('gen/keyboard_layers') if f.endswith('.svg')]; print(f'Found {len(files)} SVG files'); [print(f'  - {f}') for f in sorted(files)]\""
 depends-on = ["generate-svg"]
+description = "List generated SVG files and confirm count"
 
-# Display keyboard configuration information
 [tasks.info]
-cmd = "qmk info phreedom.json"
-
-# === Documentation ===
-
-# Build HTML documentation from AsciiDoc source
-[tasks.build-html]
-cmd = "asciidoctor FreedBoard.adoc -o FreedBoard.html"
-
-# Build documentation in all formats (PDF and HTML)
-[tasks.build-docs]
-depends-on = ["build-pdf", "build-html"]
+cmd = "qmk info gen/freed-board.json"
+description = "Display keyboard configuration via qmk info"
 
 [feature.dev.dependencies]
 # Development-specific dependencies
 black = "*"
 flake8 = "*"
 
-# Format Python code using black
 [feature.dev.tasks.format]
 cmd = "black scripts/"
+description = "Format Python scripts with black"
 
-# Lint Python code using flake8
 [feature.dev.tasks.lint-python]
 cmd = "flake8 scripts/"
+description = "Lint Python scripts with flake8"
 
 [environments]
 default = { solve-group = "default" }

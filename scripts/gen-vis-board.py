@@ -8,11 +8,11 @@ Features enhanced keycode parsing with symbolic representations
 for modifier combinations and special keys.
 
 Usage:
-    python generate_keyboard_layers.py [keyboard.json] [template.svg]
-    python generate_keyboard_layers.py --test  # Run parsing tests
+    python scripts/gen-vis-board.py [keyboard.json] [template.svg]
+    python scripts/gen-vis-board.py --test  # Run parsing tests
 
 Default files:
-    - keyboard.json: phreedom.json
+    - keyboard.json: gen/freed-board.json
     - template.svg: LAYOUT_ortho_5x12-template.svg
 
 Supported QMK Keycodes:
@@ -509,12 +509,12 @@ def main():
     if len(sys.argv) > 1:
         keyboard_file = sys.argv[1]
     else:
-        keyboard_file = "phreedom.json"
+        keyboard_file = "gen/freed-board.json"
 
     if len(sys.argv) > 2:
         template_file = sys.argv[2]
     else:
-        template_file = "LAYOUT_ortho_5x12-template.svg"
+        template_file = "src/layout-templates/LAYOUT_ortho_5x12-template.svg"
 
     print(f"Loading keyboard configuration from: {keyboard_file}")
     print(f"Using template: {template_file}")
@@ -529,7 +529,7 @@ def main():
         sys.exit(1)
 
     # Create output directory
-    output_dir = Path("keyboard_layers")
+    output_dir = Path("gen/keyboard_layers")
     output_dir.mkdir(exist_ok=True)
 
     # Generate layer SVGs
@@ -541,7 +541,7 @@ def main():
     for layer_index in range(num_layers):
         svg_content = generate_layer_svg(template, keyboard_data, layer_index)
         if svg_content:
-            filename = f"{keyboard_name}_layer_{layer_index}.svg"
+            filename = f"{keyboard_name}-layer-{layer_index}.svg"
             filepath = output_dir / filename
 
             try:
